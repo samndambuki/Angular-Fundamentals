@@ -7,7 +7,7 @@ import { Iproduct } from './product.model';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent {
-  products: Iproduct[];
+  products: any;
 
   filter: string = '';
 
@@ -190,12 +190,15 @@ export class CatalogComponent {
   }
 
   getImageUrl(product: Iproduct) {
+    if (!product) return '';
     return 'assets/images/robot-parts/' + product.imageName;
   }
 
   getFilteredProducts() {
     return this.filter === ''
       ? this.products
-      : this.products.filter((product) => product.category === this.filter);
+      : this.products.filter(
+          (product: any) => product.category === this.filter
+        );
   }
 }
