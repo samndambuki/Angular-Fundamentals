@@ -191,10 +191,7 @@ export class CatalogComponent {
     ];
   }
 
-  addToCart(product: Iproduct) {
-    this.cart.push(product);
-    console.log(`product${product.name} added to cart`);
-  }
+  addToCart(product: Iproduct) {}
 
   getDiscountedClasses(product: Iproduct) {
     if (product.discount > 0) return ['strikethrough'];
