@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Iproduct } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -13,7 +14,7 @@ export class CatalogComponent {
 
   cart: Iproduct[] = [];
 
-  constructor() {
+  constructor(private cartSvc: CartService) {
     this.products = [
       {
         id: 1,
@@ -191,7 +192,9 @@ export class CatalogComponent {
     ];
   }
 
-  addToCart(product: Iproduct) {}
+  addToCart(product: Iproduct) {
+    this.cartSvc.add(product);
+  }
 
   getDiscountedClasses(product: Iproduct) {
     if (product.discount > 0) return ['strikethrough'];
