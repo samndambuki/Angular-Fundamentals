@@ -11,6 +11,8 @@ export class CatalogComponent {
 
   filter: string = '';
 
+  cart: Iproduct[] = [];
+
   constructor() {
     this.products = [
       {
@@ -189,16 +191,16 @@ export class CatalogComponent {
     ];
   }
 
+  addToCart(product: Iproduct) {
+    this.cart.push(product);
+    console.log(`product${product.name} added to cart`);
+  }
+
   getDiscountedClasses(product: Iproduct) {
     if (product.discount > 0) return ['strikethrough'];
     else {
       return [];
     }
-  }
-
-  getImageUrl(product: Iproduct) {
-    if (!product) return '';
-    return 'assets/images/robot-parts/' + product.imageName;
   }
 
   getFilteredProducts() {
