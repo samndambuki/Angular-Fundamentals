@@ -28,7 +28,7 @@ export class CatalogComponent {
       this.products = products;
     });
     // this.filter = this.route.snapshot.params['filter'];
-    this.route.params.subscribe((params) => {
+    this.route.queryParams.subscribe((params) => {
       this.filter = params['filter'] ?? '';
     });
   }

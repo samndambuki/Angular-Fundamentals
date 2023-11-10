@@ -7,7 +7,7 @@ import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, title: "Home - Joe's Robot Shop" },
   {
-    path: 'catalog/:filter',
+    path: 'catalog',
     component: CatalogComponent,
     title: "Catalog - Joe's Robot Shop",
   },
