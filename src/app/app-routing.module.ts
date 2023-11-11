@@ -13,8 +13,8 @@ const routes: Routes = [
     title: "Catalog - Joe's Robot Shop",
   },
   { path: 'cart', component: CartComponent, title: "Cart - Joe's Robot Shop" },
-  { path: '', redirectTo: '/home', pathMatch: 'prefix' },
   { path: 'sign-in', component: SignInComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
