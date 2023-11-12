@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent {
   credentials: IUserCredentials = { email: '', password: '' };
+  signInError: boolean = false;
 
   constructor(private userSerice: UserService, private router: Router) {}
 
   signIn() {
+    this.signInError = false;
     this.userSerice.signIn(this.credentials).subscribe({
       next: () => this.router.navigate(['/catalog']),
+      error: () => (this.signInError = true),
     });
   }
 }
